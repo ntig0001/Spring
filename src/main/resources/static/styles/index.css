@@ -1,0 +1,33 @@
+body{
+  background: url(https://images.unsplash.com/photo-1584735414262-afce54dc2217?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat center fixed;
+  background-size: cover;
+}
+
+header{
+  color:beige;
+  font-weight: 600;
+  margin:30px;
+  text-align: center;
+}
+
+#subtitle{
+  text-align: center;
+  background: rgb(28, 76, 98);
+  opacity: 0.8;
+  border-radius: 5px;
+  padding: 0.2rem;
+  margin-bottom: 5px;
+}
+
+.fBold{
+  color:rgb(224, 112, 59);
+  font-weight: 600;
+}
+
+.fLight{
+  color:rgb(246, 195, 171);
+}
+
+.icon{
+  color:rgb(173, 20, 6);
+}

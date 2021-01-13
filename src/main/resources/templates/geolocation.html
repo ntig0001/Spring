@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Coronavirus Case Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles/index.css}"/>
+    <link rel="stylesheet" th:href="@{/styles/geolocation.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div id="mobile">
+      <header id="header">
+        <h1 class="display-4">Coronavirus Case Tracker</h1>
+      </header>
+      <main class="container">
+        <div id="redirect">
+          <form action="#" th:action="@{/home}">
+            <input type="text" name="name" id="name" hidden>
+            <button type="submit" class="btn btn-info btn-lg btn-block fBold">
+              Home
+            </button>
+          </form>
+        </div>
+        <hr class="my-1">
+        <div class="container" id="map"></div>
+
+        <input type="text" name="latitude" id="latitude" th:value="${latitude}" hidden/>
+        <input type="text" name="longitude" id="longitude" th:value="${longitude}" hidden/>
+        
+        <script>
+          var map;
+          var latRetrieved = parseFloat(document.getElementById('latitude').value);
+          var longRetrieved = parseFloat(document.getElementById('longitude').value);
+
+          function initMap(){
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: latRetrieved, lng: longRetrieved},
+              zoom: 6
+            });
+            var marker = new google.maps.Marker({
+              position: {lat: latRetrieved, lng: longRetrieved},
+              map: map
+            });
+
+          }
+        </script>
+        <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi3RRcnsg0wfvIL5JWCcuqxtliL6WoNv0&callback=initMap">
+        </script>
+      </main>
+    </div>
+  </body>
+</html>
