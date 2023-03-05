@@ -57,7 +57,7 @@ public class CoronaRecoveredDataService {
       recoveredDataRecord.setState(record.get("Province/State"));
       recoveredDataRecord.setCountry(record.get("Country/Region"));
       
-      //catch emty records for latitude and longitude
+      //catch empty records for latitude and longitude
       String latRecord = record.get("Lat");
       String longRecord = record.get("Long");
       if(!latRecord.isEmpty() || !longRecord.isEmpty()){
